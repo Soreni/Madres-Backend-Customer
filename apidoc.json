@@ -1,0 +1,8 @@
+{
+    "name": "Madres API documentation",
+    "version": "1.0.0",
+    "description": "Madres Client Side API",
+    "template": {
+        "forceLanguage": "en"
+    }
+}
