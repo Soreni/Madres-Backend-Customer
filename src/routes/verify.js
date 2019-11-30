@@ -6,7 +6,7 @@ const router = express.Router();
 
 
 /**
- * @api {post} /logins Verify a new client
+ * @api {post} /verify Verify a new client
  * @apiGroup Clients
  * @apiParam {String}  countryCode client country code 
  * @apiParam {String}  phoneNumber client phone number 

@@ -273,6 +273,100 @@ define({ "api": [
   {
     "type": "post",
     "url": "/logins",
+    "title": "Auth a new client",
+    "group": "Clients",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "countryCode",
+            "description": "<p>client country code</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "phoneNumber",
+            "description": "<p>client phone number</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Input",
+          "content": "   {\n\t\"countryCode\": \"+251\",\n    \"phoneNumber\": \"912317319\"\n  }",
+          "type": "json"
+        }
+      ]
+    },
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "clients._id",
+            "description": "<p>Client _id</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "clients.countryCode",
+            "description": "<p>Client countryCode</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "clients.phoneNumber",
+            "description": "<p>Client phoneNumber</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Date",
+            "optional": false,
+            "field": "dateModified",
+            "description": "<p>Update date</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Date",
+            "optional": false,
+            "field": "dateCreated_at",
+            "description": "<p>Register date</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Success",
+          "content": "HTTP/1.1 200 OK\n{\n \"\"Verification code sent to your phone\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "error": {
+      "examples": [
+        {
+          "title": "Register error",
+          "content": "HTTP/1.1 500 Internal Server Error",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "src/routes/login.js",
+    "groupTitle": "Clients",
+    "name": "PostLogins"
+  },
+  {
+    "type": "post",
+    "url": "/verify",
     "title": "Verify a new client",
     "group": "Clients",
     "parameter": {
@@ -369,101 +463,7 @@ define({ "api": [
     "version": "0.0.0",
     "filename": "src/routes/verify.js",
     "groupTitle": "Clients",
-    "name": "PostLogins"
-  },
-  {
-    "type": "post",
-    "url": "/logins",
-    "title": "Auth a new client",
-    "group": "Clients",
-    "parameter": {
-      "fields": {
-        "Parameter": [
-          {
-            "group": "Parameter",
-            "type": "String",
-            "optional": false,
-            "field": "countryCode",
-            "description": "<p>client country code</p>"
-          },
-          {
-            "group": "Parameter",
-            "type": "String",
-            "optional": false,
-            "field": "phoneNumber",
-            "description": "<p>client phone number</p>"
-          }
-        ]
-      },
-      "examples": [
-        {
-          "title": "Input",
-          "content": "   {\n\t\"countryCode\": \"+251\",\n    \"phoneNumber\": \"912317319\"\n  }",
-          "type": "json"
-        }
-      ]
-    },
-    "success": {
-      "fields": {
-        "Success 200": [
-          {
-            "group": "Success 200",
-            "type": "String",
-            "optional": false,
-            "field": "clients._id",
-            "description": "<p>Client _id</p>"
-          },
-          {
-            "group": "Success 200",
-            "type": "String",
-            "optional": false,
-            "field": "clients.countryCode",
-            "description": "<p>Client countryCode</p>"
-          },
-          {
-            "group": "Success 200",
-            "type": "String",
-            "optional": false,
-            "field": "clients.phoneNumber",
-            "description": "<p>Client phoneNumber</p>"
-          },
-          {
-            "group": "Success 200",
-            "type": "Date",
-            "optional": false,
-            "field": "dateModified",
-            "description": "<p>Update date</p>"
-          },
-          {
-            "group": "Success 200",
-            "type": "Date",
-            "optional": false,
-            "field": "dateCreated_at",
-            "description": "<p>Register date</p>"
-          }
-        ]
-      },
-      "examples": [
-        {
-          "title": "Success",
-          "content": "HTTP/1.1 200 OK\n{\n \"\"Verification code sent to your phone\"\n}",
-          "type": "json"
-        }
-      ]
-    },
-    "error": {
-      "examples": [
-        {
-          "title": "Register error",
-          "content": "HTTP/1.1 500 Internal Server Error",
-          "type": "json"
-        }
-      ]
-    },
-    "version": "0.0.0",
-    "filename": "src/routes/login.js",
-    "groupTitle": "Clients",
-    "name": "PostLogins"
+    "name": "PostVerify"
   },
   {
     "type": "put",
